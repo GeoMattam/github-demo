@@ -1,0 +1,22 @@
+9954-1684 - git code for saving and syncing files
+
+pwd
+mkdir git-projects
+cd projects
+pwd
+
+git version #comment: to get the version of git
+git config --global user.name "Athmaraman Natarajan" #comment: to set the config with name
+git config --global user.email "n.athmaraman@git.training" #comment: to set the config with email
+git config --global --list #comment: to get the config items
+git clone https://github.com/athma-hub/github-demo.git #comment: to clone the github repository
+ls
+cd github-demo
+ls
+git status
+git add [filename].[ext]
+git status
+git commit -m "[Comment to be typed when committing files]"
+git status
+git push origin main #comment: to push the changes in the local git repository to github repository
+
