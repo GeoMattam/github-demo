@@ -1,32 +1,50 @@
-You are a business systems analyst specialized in COBOL systems.
+import re
+import os
 
-Your task is to extract and summarize **only the business logic** from the COBOL code provided below.
+def segment_jsp(jsp_path, output_dir=None):
+    with open(jsp_path, 'r', encoding='utf-8') as file:
+        content = file.read()
 
-**Strict Instructions**:
-- Do NOT include or quote any COBOL code, syntax, or variable names in the output.
-- Focus only on business intent, rules, and behavior explained in plain English.
+    # Matches
+    scriptlets = re.findall(r'<%[^=][\s\S]*?%>', content)
+    expressions = re.findall(r'<%=[\s\S]*?%>', content)
+    el_expressions = re.findall(r'\$\{[^}]+\}', content)
+    jstl_tags = re.findall(r'<c:[^>]+>', content)
 
-Extract:
-- Conditional logic (decisions made, and why)
-- Loops (what is being repeated and why)
-- Computations (what is calculated and its purpose)
+    # Remove all matches from content to get remaining static HTML
+    html_only = content
+    for match in scriptlets + expressions + jstl_tags + el_expressions:
+        html_only = html_only.replace(match, '')
 
-Use this output format:
+    results = {
+        "scriptlets": scriptlets,
+        "expressions": expressions,
+        "el_expressions": el_expressions,
+        "jstl_tags": jstl_tags,
+        "html": html_only
+    }
 
-### Extracted Business Logic
+    # Optional: write to output directory
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+        for key, blocks in results.items():
+            out_path = os.path.join(output_dir, f"{key}.txt")
+            with open(out_path, "w", encoding='utf-8') as f:
+                if isinstance(blocks, list):
+                    f.write('\n\n'.join(blocks))
+                else:
+                    f.write(blocks)
+        print(f"Segmented output saved to {output_dir}")
 
-#### 1. Conditional Logic
-- **Rule**: [What decision is made]
-- **Purpose**: [Why it’s done in business terms]
+    return results
 
-#### 2. Loops and Iterations
-- **Loop**: [What is being iterated]
-- **Purpose**: [Business reasoning for looping]
 
-#### 3. Computations and Transformations
-- **Computation**: [What is being calculated]
-- **Purpose**: [What the calculation achieves]
+# Example usage
+if __name__ == "__main__":
+    jsp_input_file = "FinancialDashboard/WebContent/loanDashboard.jsp"  # Replace with your JSP file
+    output_directory = "segmented_output"
 
----
-
-COBOL Program:
+    segments = segment_jsp(jsp_input_file, output_directory)
+    print("Segmentation Summary:")
+    for k, v in segments.items():
+        print(f"{k}: {len(v) if isinstance(v, list) else 'HTML content'}")
