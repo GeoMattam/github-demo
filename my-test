@@ -1,50 +1,10 @@
-import re
-import os
+# Full block tags (with body)
+namespaced_blocks = re.findall(r'<(\w+:\w+)[^>]*>[\s\S]*?</\1>', content)
 
-def segment_jsp(jsp_path, output_dir=None):
-    with open(jsp_path, 'r', encoding='utf-8') as file:
-        content = file.read()
+# Self-closing tags
+self_closing_tags = re.findall(r'<\w+:\w+[^>]*/>', content)
 
-    # Matches
-    scriptlets = re.findall(r'<%[^=][\s\S]*?%>', content)
-    expressions = re.findall(r'<%=[\s\S]*?%>', content)
-    el_expressions = re.findall(r'\$\{[^}]+\}', content)
-    jstl_tags = re.findall(r'<c:[^>]+>', content)
-
-    # Remove all matches from content to get remaining static HTML
-    html_only = content
-    for match in scriptlets + expressions + jstl_tags + el_expressions:
-        html_only = html_only.replace(match, '')
-
-    results = {
-        "scriptlets": scriptlets,
-        "expressions": expressions,
-        "el_expressions": el_expressions,
-        "jstl_tags": jstl_tags,
-        "html": html_only
-    }
-
-    # Optional: write to output directory
-    if output_dir:
-        os.makedirs(output_dir, exist_ok=True)
-        for key, blocks in results.items():
-            out_path = os.path.join(output_dir, f"{key}.txt")
-            with open(out_path, "w", encoding='utf-8') as f:
-                if isinstance(blocks, list):
-                    f.write('\n\n'.join(blocks))
-                else:
-                    f.write(blocks)
-        print(f"Segmented output saved to {output_dir}")
-
-    return results
-
-
-# Example usage
-if __name__ == "__main__":
-    jsp_input_file = "FinancialDashboard/WebContent/loanDashboard.jsp"  # Replace with your JSP file
-    output_directory = "segmented_output"
-
-    segments = segment_jsp(jsp_input_file, output_directory)
-    print("Segmentation Summary:")
-    for k, v in segments.items():
-        print(f"{k}: {len(v) if isinstance(v, list) else 'HTML content'}")
+def extract_namespaced_jsp_tags(content):
+    block_tags = re.findall(r'<(\w+:\w+)[^>]*>[\s\S]*?</\1>', content)
+    self_closing_tags = re.findall(r'<\w+:\w+[^>]*/>', content)
+    return block_tags + self_closing_tags
