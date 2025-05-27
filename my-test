@@ -1,10 +1,31 @@
-# Full block tags (with body)
-namespaced_blocks = re.findall(r'<(\w+:\w+)[^>]*>[\s\S]*?</\1>', content)
+You are an expert Java developer proficient in both Java 6 and Java 8+ paradigms.
 
-# Self-closing tags
-self_closing_tags = re.findall(r'<\w+:\w+[^>]*/>', content)
+You are given a Java file written using Java 6 style. Your task is to:
+1. Identify code segments that can be converted to functional programming using features introduced in Java 8.
+2. For each such segment:
+   - Show the **original Java 6 code**.
+   - Show the **converted Java 8 functional code**.
+   - Briefly describe the change (e.g., replaced anonymous inner class with lambda, used Stream API for collection transformation, etc.)
 
-def extract_namespaced_jsp_tags(content):
-    block_tags = re.findall(r'<(\w+:\w+)[^>]*>[\s\S]*?</\1>', content)
-    self_closing_tags = re.findall(r'<\w+:\w+[^>]*/>', content)
-    return block_tags + self_closing_tags
+Java 8 features to consider:
+- Replacing `for` loops with `Stream` operations.
+- Replacing anonymous inner classes implementing interfaces like `Runnable`, `Comparator`, etc., with lambda expressions.
+- Using `Optional` instead of null checks.
+- Using `Collectors`, `filter`, `map`, `reduce`, and other Stream pipeline operations.
+- Using `method references` where applicable.
+
+Ensure each transformation is in the following format:
+
+---
+**Original Code:**
+```java
+// original Java 6 code here
+
+Java 8 Functional Code:
+// refactored Java 8 version
+
+Explanation:
+[1–2 sentence summary of the change]
+
+Java File:
+{{ insert Java 6 code here }}
