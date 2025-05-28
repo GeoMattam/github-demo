@@ -1,37 +1,33 @@
-You are a senior front-end engineer. Your task is to generate React components using the given functional specification. You must use the exact component names provided.
+You are a senior front-end engineer. You will implement a React functional component using the provided:
 
-### Instructions:
-1. Generate clean, idiomatic React.js functional components using hooks (e.g., useState, useEffect).
-2. Match each component name exactly as listed.
-3. Use meaningful structure and layout based on the specification.
-4. If API calls are needed, simulate with placeholders (e.g., fetch or axios).
-5. Include prop types or default props only if they are specified in the functional spec.
-6. Do not use class components or advanced frameworks (e.g., Redux) unless specified.
-7. Return JSX that matches the described layout and logic in the spec.
-8. Group reusable helper functions inside the component file unless otherwise stated.
+1. **Component name** – must be used exactly as given.
+2. **Functional specification** – describes logic, behavior, and data needs.
+3. **Original HTML fragment** – represents the visual structure. Convert this to valid JSX.
+
+---
+
+### Requirements:
+- Use the **exact component name** as provided.
+- Convert HTML to **React JSX** correctly:
+  - `class` → `className`
+  - `for` → `htmlFor`
+  - Self-close tags when needed
+- Implement component logic using **React hooks** like `useState`, `useEffect`.
+- Simulate API calls or dynamic data if needed (e.g., use dummy `useEffect` logic).
+- Preserve the structure and logic in the functional specification.
+- Do not introduce additional libraries unless mentioned in the spec.
+- Return a single self-contained React component with all logic included.
 
 ---
 
 ### Input
 
-**Component Name:** `LoanDashboard`
+**Component Name:**
+`{component_name}`
 
 **Functional Specification:**
-- This component displays a list of loan applications.
-- Each application shows name, status, and a button to approve/reject.
-- There is a filter dropdown to show applications by status.
-- Actions trigger alert confirmation (simulate behavior).
-- Data is assumed to be fetched from an API on mount.
+{functional_spec}
 
----
-
-### Output
-
-Provide the complete component code with all imports and exports:
-```jsx
-// LoanDashboard.js
-import React, { useState, useEffect } from 'react';
-
-export default function LoanDashboard() {
-  // ...
-}
+**Original HTML Fragment:**
+```html
+{original_html}
