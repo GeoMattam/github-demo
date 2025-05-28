@@ -1,31 +1,37 @@
-You are an expert Java developer proficient in both Java 6 and Java 8+ paradigms.
+You are a senior front-end engineer. Your task is to generate React components using the given functional specification. You must use the exact component names provided.
 
-You are given a Java file written using Java 6 style. Your task is to:
-1. Identify code segments that can be converted to functional programming using features introduced in Java 8.
-2. For each such segment:
-   - Show the **original Java 6 code**.
-   - Show the **converted Java 8 functional code**.
-   - Briefly describe the change (e.g., replaced anonymous inner class with lambda, used Stream API for collection transformation, etc.)
-
-Java 8 features to consider:
-- Replacing `for` loops with `Stream` operations.
-- Replacing anonymous inner classes implementing interfaces like `Runnable`, `Comparator`, etc., with lambda expressions.
-- Using `Optional` instead of null checks.
-- Using `Collectors`, `filter`, `map`, `reduce`, and other Stream pipeline operations.
-- Using `method references` where applicable.
-
-Ensure each transformation is in the following format:
+### Instructions:
+1. Generate clean, idiomatic React.js functional components using hooks (e.g., useState, useEffect).
+2. Match each component name exactly as listed.
+3. Use meaningful structure and layout based on the specification.
+4. If API calls are needed, simulate with placeholders (e.g., fetch or axios).
+5. Include prop types or default props only if they are specified in the functional spec.
+6. Do not use class components or advanced frameworks (e.g., Redux) unless specified.
+7. Return JSX that matches the described layout and logic in the spec.
+8. Group reusable helper functions inside the component file unless otherwise stated.
 
 ---
-**Original Code:**
-```java
-// original Java 6 code here
 
-Java 8 Functional Code:
-// refactored Java 8 version
+### Input
 
-Explanation:
-[1–2 sentence summary of the change]
+**Component Name:** `LoanDashboard`
 
-Java File:
-{{ insert Java 6 code here }}
+**Functional Specification:**
+- This component displays a list of loan applications.
+- Each application shows name, status, and a button to approve/reject.
+- There is a filter dropdown to show applications by status.
+- Actions trigger alert confirmation (simulate behavior).
+- Data is assumed to be fetched from an API on mount.
+
+---
+
+### Output
+
+Provide the complete component code with all imports and exports:
+```jsx
+// LoanDashboard.js
+import React, { useState, useEffect } from 'react';
+
+export default function LoanDashboard() {
+  // ...
+}
