@@ -1,33 +1,31 @@
-You are a senior front-end engineer. You will implement a React functional component using the provided:
+You are an expert software engineer. Your task is to read the given Java code and convert it into **exhaustive, line-by-line pseudocode**.
 
-1. **Component name** – must be used exactly as given.
-2. **Functional specification** – describes logic, behavior, and data needs.
-3. **Original HTML fragment** – represents the visual structure. Convert this to valid JSX.
+Please ensure:
+- All control flow (if-else, loops, switches) is fully explained in natural language.
+- All method calls are expanded with a description of their purpose.
+- Variable declarations and assignments are explained.
+- Any object creation or data structure manipulation is described.
+- The pseudocode should be easy to follow by someone without Java knowledge.
+- Do not include any Java syntax in the output. This must be **pure pseudocode** in plain English.
 
----
+Java Program:
+----------------------------------------------------
+```java
+<insert_java_code_here>
 
-### Requirements:
-- Use the **exact component name** as provided.
-- Convert HTML to **React JSX** correctly:
-  - `class` → `className`
-  - `for` → `htmlFor`
-  - Self-close tags when needed
-- Implement component logic using **React hooks** like `useState`, `useEffect`.
-- Simulate API calls or dynamic data if needed (e.g., use dummy `useEffect` logic).
-- Preserve the structure and logic in the functional specification.
-- Do not introduce additional libraries unless mentioned in the spec.
-- Return a single self-contained React component with all logic included.
+Expected Output:
+Pseudocode:
+1. Start the program.
+2. Declare a variable X and initialize it to ...
+3. Define a function named calculateSum that accepts two integers.
+  - Inside this function:
+      a. Add the two input numbers.
+      b. Return the result.
+4. Call the calculateSum function with values A and B and store the result in variable total.
+5. If total is greater than 100:
+    - Print "High".
+    - Else:
+      - Print "Low".
+6. End the program.
 
----
-
-### Input
-
-**Component Name:**
-`{component_name}`
-
-**Functional Specification:**
-{functional_spec}
-
-**Original HTML Fragment:**
-```html
-{original_html}
+Please output only the pseudocode section. Be as detailed and comprehensive as possible.
