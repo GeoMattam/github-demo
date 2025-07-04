@@ -75,3 +75,127 @@ Please follow the exact output format shown below.
     - Flag any vague goals, undefined terms, or subjective phrases in the ambiguous section.
     - NFRs can include performance, security, scalability, usability, availability, maintainability, audit, or compliance goals.
     - Business Rules include domain logic, constraints, validations, calculations, or mandatory conditions that must be enforced.
+
+
+
+[
+  {
+    "requirement_id": "FR001",
+    "requirement_text": "The system shall allow the Card Operations Team to register schools, including their name, location, and account number.",
+    "original_text": "UI for Card Operations Team to register schools: School Name, Location, Account Number",
+    "source_section": "3.A",
+    "page_number": null,
+    "line_number": null
+  },
+  {
+    "requirement_id": "FR002",
+    "requirement_text": "The system shall allow the Product team to send school registration data via email in Excel format.",
+    "original_text": "Product team to send registration data via email (Excel format)",
+    "source_section": "3.A",
+    "page_number": null,
+    "line_number": null
+  },
+  {
+    "requirement_id": "FR003",
+    "requirement_text": "The system shall allow internal configuration of NGB GL accounts.",
+    "original_text": "Configure NGB GL account internally",
+    "source_section": "3.A",
+    "page_number": null,
+    "line_number": null
+  },
+  {
+    "requirement_id": "FR004",
+    "requirement_text": "The system shall allow registration of multiple fee types per school (e.g., School Fee, Bus Fee).",
+    "original_text": "Allow registration of multiple fee types per school (e.g., School Fee, Bus Fee)",
+    "source_section": "3.A",
+    "page_number": null,
+    "line_number": null
+  },
+  {
+    "requirement_id": "FR005",
+    "requirement_text": "The system shall allow customers with active credit cards to register multiple students via Online/Mobile Banking.",
+    "original_text": "Available to customers with active credit cards. Register multiple students.",
+    "source_section": "3.B",
+    "page_number": null,
+    "line_number": null
+  },
+  {
+    "requirement_id": "FR006",
+    "requirement_text": "The Online/Mobile Banking student registration shall include input fields for Student Name, Student ID (entered twice), and School (dropdown).",
+    "original_text": "Input fields: Student Name, Student ID (entered twice), School (dropdown)",
+    "source_section": "3.B",
+    "page_number": null,
+    "line_number": null
+  },
+  {
+    "requirement_id": "FR007",
+    "requirement_text": "The system shall require OTP authentication for Online/Mobile Banking student registration.",
+    "original_text": "OTP authentication mandatory",
+    "source_section": "3.B",
+    "page_number": null,
+    "line_number": null
+  },
+  {
+    "requirement_id": "FR008",
+    "requirement_text": "The system shall send SMS alerts for student registration/amendment/de-registration via Online/Mobile Banking.",
+    "original_text": "SMS alerts for registration/amendment/de-registration",
+    "source_section": "3.B",
+    "page_number": null,
+    "line_number": null
+  },
+  {
+    "requirement_id": "FR009",
+    "requirement_text": "The system shall authenticate users via IVR TIN for Contact Center (E-Form) student registration.",
+    "original_text": "Authenticate via IVR TIN",
+    "source_section": "3.B",
+    "page_number": null,
+    "line_number": null
+  },
+  {
+    "requirement_id": "FR010",
+    "requirement_text": "The system shall allow agents to register, amend, and de-register students using an E-Form in the Contact Center.",
+    "original_text": "Agent uses E-Form to: Register, Amend, De-register student",
+    "source_section": "3.B",
+    "page_number": null,
+    "line_number": null
+  },
+  {
+    "requirement_id": "FR011",
+    "requirement_text": "The system shall restrict copy-paste functionality on the Student ID field in the Contact Center E-Form.",
+    "original_text": "Restrict copy-paste on Student ID field",
+    "source_section": "3.B",
+    "page_number": null,
+    "line_number": null
+  },
+  {
+    "requirement_id": "FR012",
+    "requirement_text": "The system shall send SMS alerts after processing student registration/amendment/de-registration via the Contact Center.",
+    "original_text": "SMS alerts post-processing",
+    "source_section": "3.B",
+    "page_number": null,
+    "line_number": null
+  },
+  {
+    "requirement_id": "FR013",
+    "requirement_text": "The system shall support fee payments via Online Banking, Mobile Banking, and IVR.",
+    "original_text": "Channels: Online Banking, Mobile Banking, IVR",
+    "source_section": "3.C",
+    "page_number": null,
+    "line_number": null
+  },
+  {
+    "requirement_id": "FR014",
+    "requirement_text": "The system shall only allow fee payments for registered students.",
+    "original_text": "Only registered students eligible for payment",
+    "source_section": "3.C",
+    "page_number": null,
+    "line_number": null
+  },
+  {
+    "requirement_id": "FR015",
+    "requirement_text": "The system shall display all active cards for selection during fee payment.",
+    "original_text": "Show all active cards for selection",
+    "source_section": "3.C",
+    "page_number": null,
+    "line_number": null
+  },
