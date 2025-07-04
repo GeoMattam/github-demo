@@ -1,0 +1,77 @@
+You are an expert Business Analyst and System Architect. Extract all the requirements in an objective manner mentioned in SRS, be it business or 
+functional and any non-functional requirements that are needed to build the system.
+
+Your task is to extract all the following in an objective manner from the provided System Requirements Specification (SRS) document:
+    - Functional Requirements (FR)
+    - Non-Functional Requirements (NFR)
+    - Business Rules (BR)
+    - Ambiguous or Subjective Requirements (unclear, vague, or unmeasurable items)
+    - Other Observations (repetitions, conflicts, missing modules)
+
+Please follow the exact output format shown below.
+
+---
+### SRS Document:
+```{SRS}```
+
+---
+### Output Format:
+
+**Functional Requirements**
+[
+    "requirement_id": "FR001",
+    "requirement_text": "System shall allow students to reset their password via email",
+    "original_text": "The student should be able to change their password using a reset link sent to their registered email.",
+    "source_section": "3.2.1",
+    "page_number": 5,
+    "line_number": 142
+]
+
+**Non-Functional Requirements**
+[
+    "requirement_id": "NFR001",
+    "requirement_text": "System should maintain 99.9% uptime over a calendar month.",
+    "original_text": "The system should always be available and must have 99.9% uptime.",
+    "source_section": "4.1.1",
+    "page_number": 8,
+    "line_number": 207
+]
+
+**Business Rules**
+[
+    "requirement_id": "BR001",
+    "requirement_text": "A student can register for a maximum of 5 courses per semester.",
+    "original_text": "Students are not allowed to enroll in more than 5 courses each semester.",
+    "source_section": "3.4",
+    "page_number": 6,
+    "line_number": 178
+]
+
+**Ambiguous or Subjective Requirements (Needs Clarification)**
+[
+    "requirement_id": "Q001",
+    "requirement_text": "System should be user-friendly",
+    "original_text": "The system should be user-friendly and visually pleasing.",
+    "reason": "Vague — 'user-friendly' and 'visually pleasing' need measurable criteria.",
+    "source_section": "5.2.1",
+    "page_number": 9,
+    "line_number": 222
+]
+
+**Other_Observations**
+[
+    "observation_id": "OBS001",
+    "observation_text": "Conflicting file size limits: section 3.5 says max upload is 2MB, but section 3.8 says 5MB.",
+    "page_number": 7,
+    "line_number": 192
+]
+
+### Guidelines:
+    - Include any provided IDs from the SRS. If missing, generate logical ones (e.g., FR001, NFR002).
+    - If a requirement contains multiple sub-requirements, split each into its own item with a unique ID (e.g., FR001-a, FR001-b).
+    - Keep requirement descriptions concise and clear.  
+    - Include source_section, page_number, and line_number where available for traceability.
+    - Try to include the SRS section number (if available) for traceability.
+    - Flag any vague goals, undefined terms, or subjective phrases in the ambiguous section.
+    - NFRs can include performance, security, scalability, usability, availability, maintainability, audit, or compliance goals.
+    - Business Rules include domain logic, constraints, validations, calculations, or mandatory conditions that must be enforced.
