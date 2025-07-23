@@ -64,3 +64,22 @@ foreach ($line in $netstat) {
 }
 
 Write-Output "`n==== DONE ===="
+
+$port = "8501"
+$entry = netstat -aon | Select-String ":$port"
+
+foreach ($line in $entry) {
+    $parts = ($line -split "\s+") -ne ''
+    if ($parts.Count -ge 5) {
+        $procId = $parts[-1]
+        $localAddress = $parts[1]
+        $state = $parts[-2]
+
+        $task = tasklist /FI "PID eq $procId" /FO CSV | Select-String -NotMatch "Image Name"
+        if ($task) {
+            $columns = $task -replace '"' -split ","
+            $procName = $columns[0]
+            Write-Output "Process: $procName | PID: $procId | Port: $port | Address: $localAddress | State: $state"
+        }
+    }
+}
